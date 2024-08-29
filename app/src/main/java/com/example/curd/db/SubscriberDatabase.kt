@@ -21,7 +21,8 @@ abstract class SubscriberDatabase : RoomDatabase(){
                         context.applicationContext,
                         SubscriberDatabase::class.java,
                         "subscriber_data_database"
-                    ).build()
+                    ).fallbackToDestructiveMigration()
+                        .build()
                     INSTANCE = instance
                 }
                 return instance
