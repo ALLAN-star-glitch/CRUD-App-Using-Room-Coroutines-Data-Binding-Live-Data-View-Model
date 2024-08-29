@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CURD</string>
+    <string name="save">Save</string>
+    <string name="clear_all">Clear All</string>
+    <string name="subscriber_s_email">Subscriber\'s Email</string>
+    <string name="subscriber_s_name">Subscriber\'s Name</string>
+    <string name="curd_project">CURD Project</string>
 </resources>
