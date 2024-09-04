@@ -6,7 +6,7 @@
     <data>
         <variable
             name="myViewModel"
-            type= "com.example.curd.db.SubscriberViewModel" />
+            type= "com.example.curd.SubscriberViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -51,7 +51,6 @@
     <!-- Second EditText Field -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_text"
-        android:text="@={myViewModel.inputEmail}"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -61,6 +60,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/secondEditText"
+            android:text="@={myViewModel.inputEmail}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/subscriber_s_email"
@@ -72,7 +72,7 @@
         android:id="@+id/save_or_update_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@={myViewModel.saveorUpdateButtonText}"
+        android:text="@={myViewModel.saveOrUpdateButtonText}"
         android:onClick="@{()->myViewModel.saveOrUpdate()}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/clear_all_or_delete_button"
@@ -85,7 +85,7 @@
         android:id="@+id/clear_all_or_delete_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@={myViewModel.clearAllorDeleteButtonText}"
+        android:text="@={myViewModel.clearAllOrDeleteButtonText}"
         android:onClick="@{()->myViewModel.clearAllOrDelete()}"
         app:layout_constraintStart_toEndOf="@id/save_or_update_button"
         app:layout_constraintEnd_toEndOf="parent"
