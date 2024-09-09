@@ -2,10 +2,13 @@ package com.example.curd
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.curd.databinding.ActivityMainBinding
+import com.example.curd.db.Subscriber
 import com.example.curd.db.SubscriberDAO
 import com.example.curd.db.SubscriberDatabase
 import com.example.curd.db.SubscriberRepository
@@ -35,12 +38,24 @@ class MainActivity : AppCompatActivity() {
         binding.lifecycleOwner = this//since we are intending to use live data with data binding
 
 
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView(){
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
         displaySubscriberList()
     }
 
     private fun displaySubscriberList(){
         subscriberViewModel.subscribers.observe(this){subscribers->
-            Log.d("MyTAG", subscribers.toString())
+            //Log.d("MyTAG", subscribers.toString())
+            binding.recyclerView.adapter = MyRecyclerViewAdapter(subscribers) { selectedItem: Subscriber ->
+                listItemClicked(selectedItem)
+            }
         }
+    }
+
+    private fun listItemClicked(subscriber: Subscriber){
+        Toast.makeText(this,"selected name is ${subscriber.name}",Toast.LENGTH_LONG).show()
     }
 }
